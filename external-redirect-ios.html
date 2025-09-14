@@ -8,24 +8,13 @@
 <body>
     <script>
     setTimeout(() => {
-        // iOS-specific redirect methods
         try {
-            // Method 1: Direct window.open with _system target (iOS-specific)
-            var result = window.open('https://www.aliexpress.com', '_system');
-            console.log('[iOS-REDIRECT] window.open(_system) result:', result);
-            
-            if (!result) {
-                // Method 2: Standard window.open
-                window.open('https://www.aliexpress.com', '_blank');
-            }
+            window.open('https://www.aliexpress.com', '_system');
         } catch (e) {
-            console.log('[iOS-REDIRECT] Error:', e);
             try {
-                // Method 3: Direct navigation
-                window.location.href = 'https://www.aliexpress.com';
+                window.open('https://www.aliexpress.com', '_blank');
             } catch (e2) {
-                // Method 4: Document location
-                document.location = 'https://www.aliexpress.com';
+                window.location.href = 'https://www.aliexpress.com';
             }
         }
     }, 200);
